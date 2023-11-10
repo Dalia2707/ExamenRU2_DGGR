@@ -5,8 +5,9 @@
         static void Main(string[] args)
         {
            Examen examen= new Examen();
-            //examen.DatosCurp();
+            examen.DatosCurp();
             examen.Calificaciones();
+            examen.TablaVendedores();
         }
     }
 }

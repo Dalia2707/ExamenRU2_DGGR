@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -79,11 +80,11 @@ namespace ExamenRU2_DGGR
             Console.WriteLine("introdusca el numero a buscar");
             int buscar = Convert.ToInt32(Console.ReadLine());
             int posicion = -1;
-            for(int a= 0; a<calificaciones.Length; a++)
+            for (int a = 0; a < calificaciones.Length; a++)
             {
                 if (buscar == calificaciones[a])
                 {
-                    posicion = a+1; 
+                    posicion = a + 1;
                     break;
                 }
             }
@@ -93,8 +94,47 @@ namespace ExamenRU2_DGGR
                 Console.WriteLine($"El numero {buscar} esta en la psicion {posicion}");
             }
             else
-            { 
+            {
                 Console.WriteLine($"El numero {buscar} no se encuentra ");
+            }
+        }
+
+        public void TablaVendedores()
+        {
+            int[,] tabla = { { 500, 3000, 100, 400 }, { 1000, 150, 200, 500 }, { 250, 1800, 2900, 300 }, { 400, 130, 90, 2400 }, { 60, 20, 4000, 3600 } };
+
+            //Imprima la tabla en consola.
+
+            for (int i = 0; i < tabla.GetLength(0); i++)
+            {
+                for (int h = 0; h < tabla.GetLength(1); h++)
+                {
+                    Console.Write(tabla[i, h] + " ");
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine();
+
+            for (int i = 0; i < tabla.GetLength(0); i++)
+            {
+                int suma = 0;
+                for (int h = 0; h < tabla.GetLength(1); h++)
+                {
+                    suma = suma + tabla[i, h];
+
+                }
+                Console.WriteLine($"El producto {i+1} tiene un total de {suma}");
+            }
+            Console.WriteLine();
+            for (int i = 0; i < tabla.GetLength(1); i++)
+            {
+                int suma = 0;
+                for (int h = 0; h < tabla.GetLength(0); h++)
+                {
+                    suma = suma + tabla [h,i];
+
+                }
+                Console.WriteLine($"El vendedor {i+1} tiene un total de {suma}");
             }
         }
     }
